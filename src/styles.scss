@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'styles/core/_material-theme';
+// @use 'node_modules/@angular/material/core/theming' as mat;
+
+:root {
+    --mat-sys-secondary-container: rgba(248, 250, 252, 1);
+    --mat-sys-on-secondary-container: rgba(25, 40, 57, 1);
+    --mat-sys-on-surface: rgba(25, 40, 57, 1);
+}

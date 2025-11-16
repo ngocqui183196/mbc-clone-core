@@ -1,0 +1,15 @@
+@use '@angular/material' as mat;
+@use './variables' as vars;
+@use './material-tokens' as custom;
+@use './mixins';
+
+// 1. Include core Material
+// @include mat.core();
+
+// 3. Apply token overrides cho form-field
+@include mat.form-field-overrides(custom.$my-form-field-tokens);
+@include mat.select-overrides(custom.$my-select-token);
+
+// 4. Apply mixins custom
+// @include mixins.form-field-size();
+// @include mixins.form-field-hover-focus();

@@ -1,0 +1,29 @@
+@use '@angular/material' as mat;
+@use './variables' as vars;
+
+// Override token riêng cho form-field
+$my-form-field-tokens: (
+  filled-container-color: vars.$mat-form-field-bg,
+  outlined-outline-color: vars.$mat-form-field-outline, // outline basic
+  outlined-hover-outline-color: vars.$mat-form-field-outline-hover, // outline khi hover
+  outlined-focus-label-text-color: vars.$mat-form-field-outline-label-focus, // label khi focus
+
+    
+  outlined-label-text-color: vars.$mat-form-field-placeholder,      // màu placehoder
+  outlined-hover-label-text-color: vars.$mat-form-field-placeholder, // màu placeholder khi hover
+
+  filled-focus-active-indicator-color: vars.$mat-form-field-focus,
+  outlined-focus-outline-color: vars.$mat-form-field-focus,
+//   focus-select-arrow-color: vars.$mat-form-field-focus
+
+);
+
+$my-select-token: (
+    // container-elevation-shadow: rgb(214, 59, 59),
+    panel-background-color: rgba(248, 250, 252, 1),  // màu nền options
+    enabled-trigger-text-color: black,  // Màu option đã chọn 
+    placeholder-text-color: black,  // Màu option đã chọn 
+    trigger-text-line-height: 40px, // Chiều rộng select
+    trigger-text-font: 40px, // font chữ
+)
+

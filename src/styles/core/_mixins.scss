@@ -1,0 +1,19 @@
+@use './variables' as vars;
+
+@mixin form-field-size($height: vars.$mat-form-field-height, $width: vars.$mat-form-field-width) {
+  .mat-form-field-appearance-outline {
+      height: 3rem; // hoặc biến $mat-form-field-height
+      width: 100%;
+      padding: 0.5rem 0.75rem; // trùng với $mat-form-field-padding-y/x
+      border-radius: 8px;       // trùng với $mat-form-field-border-radius
+      box-sizing: border-box;   // bắt buộc
+  }
+}
+
+// Hover/focus effect
+@mixin form-field-hover-focus($focus-color: vars.$mat-form-field-focus) {
+  .mat-form-field-appearance-outline.mat-focused {
+    border-color: $focus-color;
+    box-shadow: 0 0 0 1px $focus-color;
+  }
+}
