@@ -28,14 +28,12 @@ $my-form-field-tokens: (
   focus-select-arrow-color: vars.$mat-form-field-focus,            // Mũi tên select khi focus (đã bỏ ở v19)
 
   // ─────────────── SPACING & DENSITY ───────────────
-  container-height: 56px,                                             // Chiều cao input
-//   container-padding: 0 16px,                                          // Padding trái/phải
-//   label-top-position: 18px,                                           // Vị trí label khi chưa focus
-//   label-focus-top-position: 8px,                                      // Vị trí label khi focus
-//   label-font-size: 16px,                                              // Font label
-//   label-focus-font-size: 12px,                                        // Font label khi focus
-//   input-text-font-size: 16px,                                         // Font chữ trong input
-//   input-text-line-height: 1.5,                                        // Line height input
+     container-height: 48px,                                             // Chiều cao input
+     container-text-line-height: 0,
+     container-text-size: 16px,
+     container-vertical-padding: 14px,
+
+     filled-with-label-container-padding-top: 33px,
 
   // ─────────────── ERROR / HINT ───────────────
 
@@ -51,14 +49,17 @@ $my-form-field-tokens: (
 
 $my-select-token: (
     // container-elevation-shadow: rgb(214, 59, 59),
-    panel-background-color: rgba(248, 250, 252, 1),  // màu nền options
-    enabled-trigger-text-color: black,  // Màu option đã chọn 
-    placeholder-text-color: black,  // Màu option đã chọn 
-    trigger-text-line-height: 20px, // Chiều rộng select
-    trigger-text-font: 24px, // font chữ
+    panel-background-color: rgb(119, 178, 236),  // màu nền options
+    enabled-trigger-text-color: vars.$text-color,  // Màu option đã chọn 
+    placeholder-text-color: vars.$text-color,  // Màu option đã chọn 
+    trigger-text-line-height: 18px, // Chiều rộng select
+    // trigger-text-font: 1px, // font chữ
+    trigger-text-size: 16px,  // Cỡ chữ
 
     enabled-arrow-color: vars.$mcb-arrow-color,
     focused-arrow-color: vars.$mcb-arrow-color,
     invalid-arrow-color: vars.$mat-form-field-error,
+
+    disabled-arrow-color: gray
 )
 

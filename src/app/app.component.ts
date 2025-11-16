@@ -13,6 +13,12 @@ interface Food {
   viewValue: string;
 }
 
+interface Account {
+  number: string;
+  balance: number;
+  currency: string;
+}
+
 @Component({
   selector: 'app-root',
   imports: [
@@ -33,6 +39,29 @@ export class AppComponent {
   form: FormGroup;
   title = 'mbc-clone';
 
+  accounts: Account[] = [
+    {
+      number: '02381623745',
+      balance: 120246000,
+      currency: 'USD'
+    },
+    {
+      number: '07700007251',
+      balance: 12000000,
+      currency: 'USD'
+    },
+    {
+      number: '45600021300',
+      balance: 457300,
+      currency: 'USD'
+    },
+    {
+      number: '00000000000',
+      balance: 987298377371000,
+      currency: 'VND'
+    },
+  ]
+
    foods: Food[] = [
     {value: 'steak-0', viewValue: 'Steak'},
     {value: 'pizza-1', viewValue: 'Pizza'},
@@ -48,7 +77,7 @@ export class AppComponent {
 
     this.form = this.fb.group({
       inputDemo: ['', Validators.required],
-      selectDemo: ['', Validators.required]
+      selectDemo: [{value: '', disabled: false}, Validators.required]
     })
   }
 }

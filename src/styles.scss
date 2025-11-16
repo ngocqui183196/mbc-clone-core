@@ -6,4 +6,40 @@
     --mat-sys-on-secondary-container: rgba(25, 40, 57, 1);
     --mat-sys-on-surface: rgba(25, 40, 57, 1);      // font chữ options mat-select
     --mat-sys-on-surface-variant: rgba(25, 40, 57, 1);
+
+    --mat-form-field-container-height: 48px;
+
+    /* Thay thế infix-padding (trên/dưới = vertical, trái/phải = horizontal) */
+  --mat-form-field-container-vertical-padding: 12px;  /* padding trên/dưới */
+  --mat-form-field-container-horizontal-padding: 16px; /* padding trái/phải */
+}
+
+
+.cdk-overlay-pane {
+  .mat-mdc-select-panel {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.12);
+    .mdc-menu {
+        background: #fff9c4 !important; /* màu vàng nhạt */
+        border-radius: 8px;              /* bo góc content */
+    }
+  }
+  
+  .mat-mdc-option {
+    overflow: hidden;
+    padding: 2px 10px;
+    border-bottom: 1px solid #e5e6ea;
+    background: rgba(20, 30, 210, 0.18);
+    border-radius: 6px;
+
+    &:hover {
+      background: rgba(20, 30, 210, 0.18);
+    }
+  }
+
+  .mat-mdc-option:last-child {
+      border-bottom: none;
+  }
 }
