@@ -3,19 +3,50 @@
 
 // Override token riêng cho form-field
 $my-form-field-tokens: (
-  filled-container-color: vars.$mat-form-field-bg,
-  outlined-outline-color: vars.$mat-form-field-outline, // outline basic
-  outlined-hover-outline-color: vars.$mat-form-field-outline-hover, // outline khi hover
-  outlined-focus-label-text-color: vars.$mat-form-field-outline-label-focus, // label khi focus
+// ─────────────── CONTAINER (nền) ───────────────
+  filled-container-color: vars.$mat-form-field-bg,                    // Nền của filled input
+//   outlined-container-color: vars.$mat-form-field-bg,                  // Nền của outlined input (nếu có)
 
-    
-  outlined-label-text-color: vars.$mat-form-field-placeholder,      // màu placehoder
-  outlined-hover-label-text-color: vars.$mat-form-field-placeholder, // màu placeholder khi hover
+  // ─────────────── OUTLINE (viền) ───────────────
+  outlined-outline-color: vars.$mat-form-field-outline,               // Viền mặc định (outline)
+  outlined-hover-outline-color: vars.$mat-form-field-outline-hover,   // Viền khi hover
+  outlined-focus-outline-color: vars.$mat-form-field-focus,           // Viền khi focus
 
-  filled-focus-active-indicator-color: vars.$mat-form-field-focus,
-  outlined-focus-outline-color: vars.$mat-form-field-focus,
-//   focus-select-arrow-color: vars.$mat-form-field-focus
+  // ─────────────── LABEL / PLACEHOLDER ───────────────
+  outlined-label-text-color: vars.$mat-form-field-outline-label-focus,        // Màu label khi chưa focus
+  outlined-hover-label-text-color: vars.$mat-form-field-outline-label-focus, // Màu label khi hover
+  outlined-focus-label-text-color: vars.$mat-form-field-outline-label-focus, // Màu label khi focus
 
+  filled-label-text-color: vars.$mat-form-field-placeholder,          // Label của filled
+  filled-focus-label-text-color: vars.$mat-form-field-outline-label-focus,  // Label của filled khi focus
+ 
+  // ─────────────── UNDERLINE (filled) ───────────────
+  filled-focus-active-indicator-color: vars.$mat-form-field-focus,    // Dòng gạch dưới khi focus
+
+
+  // ─────────────── ICON / ARROW ───────────────
+  focus-select-arrow-color: vars.$mat-form-field-focus,            // Mũi tên select khi focus (đã bỏ ở v19)
+
+  // ─────────────── SPACING & DENSITY ───────────────
+  container-height: 56px,                                             // Chiều cao input
+//   container-padding: 0 16px,                                          // Padding trái/phải
+//   label-top-position: 18px,                                           // Vị trí label khi chưa focus
+//   label-focus-top-position: 8px,                                      // Vị trí label khi focus
+//   label-font-size: 16px,                                              // Font label
+//   label-focus-font-size: 12px,                                        // Font label khi focus
+//   input-text-font-size: 16px,                                         // Font chữ trong input
+//   input-text-line-height: 1.5,                                        // Line height input
+
+  // ─────────────── ERROR / HINT ───────────────
+
+  outlined-error-label-text-color: vars.$mat-form-field-error,        // Màu label khi lỗi
+  outlined-error-hover-label-text-color: vars.$mat-form-field-error,      // màu label lỗi khi hover
+  outlined-error-focus-label-text-color: vars.$mat-form-field-error,      // Màu label lỗi khi focus
+  
+  outlined-error-outline-color: vars.$mat-form-field-error,           // Viền lỗi: hồng
+  outlined-error-hover-outline-color: vars.$mat-form-field-error,      // màu viền lỗi khi hover
+  outlined-error-focus-outline-color: vars.$mat-form-field-error,      // màu viền lỗi khi focus
+  error-text-color: vars.$mat-form-field-error,                       // Màu mess lỗi
 );
 
 $my-select-token: (
@@ -23,7 +54,11 @@ $my-select-token: (
     panel-background-color: rgba(248, 250, 252, 1),  // màu nền options
     enabled-trigger-text-color: black,  // Màu option đã chọn 
     placeholder-text-color: black,  // Màu option đã chọn 
-    trigger-text-line-height: 40px, // Chiều rộng select
-    trigger-text-font: 40px, // font chữ
+    trigger-text-line-height: 20px, // Chiều rộng select
+    trigger-text-font: 24px, // font chữ
+
+    enabled-arrow-color: vars.$mcb-arrow-color,
+    focused-arrow-color: vars.$mcb-arrow-color,
+    invalid-arrow-color: vars.$mat-form-field-error,
 )
 

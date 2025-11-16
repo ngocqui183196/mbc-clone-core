@@ -3,22 +3,17 @@
     <mat-form-field appearance="outline">
       <mat-label>Yeah</mat-label>
       <input matInput type="text" formControlName="inputDemo">
+      <mat-error>Lỗi</mat-error>
     </mat-form-field>
   </div>
 
   <div>
     <mat-form-field appearance="outline">
       <mat-label>Cars</mat-label>
-      <mat-select  formControlName="selectDemo" >
-
-        <mat-option
-         *ngFor="let item of foods" [value]="item.value" class="option-item">
-         {{item.viewValue}}
+      <mat-select formControlName="selectDemo">
+        <mat-option *ngFor="let item of foods" [value]="item.value">
+          {{ item.viewValue }} 
         </mat-option>
-        <!-- <mat-option value="volvo">Volvo</mat-option>
-        <mat-option value="saab">Saab</mat-option>
-        <mat-option value="mercedes">Mercedes</mat-option>
-        <mat-option value="audi">Audi</mat-option> -->
       </mat-select>
     </mat-form-field>
   </div>

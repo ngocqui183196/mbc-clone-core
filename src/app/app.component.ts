@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
+import { MatSelectModule, MatSelectTrigger } from '@angular/material/select';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 interface Food {
   value: string;
@@ -19,7 +21,9 @@ interface Food {
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
+    MatSelectTrigger
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -35,10 +39,16 @@ export class AppComponent {
     {value: 'tacos-2', viewValue: 'Tacos'},
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private iconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer
+  ) {
+    iconRegistry.addSvgIcon('custom-down', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/down.svg'));
+
     this.form = this.fb.group({
       inputDemo: ['', Validators.required],
-      selectDemo: ['']
+      selectDemo: ['', Validators.required]
     })
   }
 }

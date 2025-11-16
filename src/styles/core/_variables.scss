@@ -1,6 +1,7 @@
 // Các biến dễ chỉnh
 $mbc-primary: rgba(20, 30, 210, 0.18);
 $mbc-primary-contrast: #ffffff;
+$mcb-arrow-color: rgba(64, 86, 109, 1);
 
 $mbc-accent: #ff6f61;
 $mbc-warn: #d32f2f;
@@ -13,6 +14,7 @@ $mat-form-field-label: #475569;
 $mat-form-field-placeholder: rgba(108, 132, 157, 0.32);
 $mat-form-field-focus: $mbc-primary;
 $mat-form-field-error: $mbc-warn;
+
 
 $mat-form-field-border-radius: 8px;
 $mat-form-field-padding-y: 0.5rem;
