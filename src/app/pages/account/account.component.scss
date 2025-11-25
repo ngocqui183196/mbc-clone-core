@@ -1,0 +1,51 @@
+.example-menu {
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 180px;
+  max-width: 280px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 6px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+.example-menu-item,
+.example-standalone-trigger {
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid #e2baba;
+  user-select: none;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex: 1;
+
+  transition: background-color 0.2s, transform 0.1s;
+  border-radius: 6px;
+}
+
+.example-menu-item:hover,
+.example-standalone-item:hover {
+  background-color: #d0d0d0;
+  transform: translateY(-1px);
+}
+
+.example-menu-item:active,
+.example-standalone-item:active {
+  background-color: #aaa;
+  transform: translateY(0);
+}
+
+.example-standalone-item {
+  background-color: #efefef;
+}
+
+.example-standalone-item[aria-expanded='true'] {
+  background-color: #d0d0d0;
+}

@@ -1,0 +1,55 @@
+<form [formGroup]="form">
+  <div style="margin-top: 30px; margin-left: 50px; width: 700px;">
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Yeah</mat-label>
+      <input matInput type="number" formControlName="inputDemo">
+      <mat-error>Lỗi</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Cars</mat-label>
+      <mat-select formControlName="selectDemo" >
+        <mat-option *ngFor="let item of foods" [value]="item.value" >
+          {{ item.viewValue }} 
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="custom-large-field">
+    <mat-form-field appearance="outline" style="width: 100%;" >
+      <label class="label-field">currency</label>
+      <mat-select panelClass="my-select-panel" placeholder="Choose item...">
+        <span>Choose balance</span>
+        <mat-option *ngFor="let item of accounts" [value]="item">
+          <div class="acc-item">
+            <div class="acc-title">{{ item.number }}</div>
+            <div class="acc-sub">{{ item.balance | number }} {{ item.currency }}</div>
+          </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>
+
+<h1> <div>{{ form.value.inputDemo | numberToWords }}</div></h1>
+
+<h1>{{ 'HELLO' | translate }}</h1>
+<h2>{{ 'LOGIN.TITLE' | translate }}</h2>
+
+<button [cdkMenuTriggerFor]="menu" class="example-standalone-trigger">{{languageSelected.name}}</button>
+
+<ng-template #menu>
+  <div class="example-menu" cdkMenu>
+
+    @for(lang of languages; track lang.code) {
+        <button class="example-menu-item" cdkMenuItem (click)="selectLanguage(lang)">{{lang.name}}</button>
+    }
+    
+    <!-- <button class="example-menu-item" cdkMenuItem>Settings</button>
+    <button class="example-menu-item" cdkMenuItem>Help</button>
+    <button class="example-menu-item" cdkMenuItem>Sign out</button> -->
+  </div>
+</ng-template>

@@ -1,0 +1,8 @@
+{
+  "HELLO": "Hello",
+  "LOGIN": {
+    "TITLE": "Login",
+    "USERNAME": "Account",
+    "PASSWORD": "Password"
+  }
+}
