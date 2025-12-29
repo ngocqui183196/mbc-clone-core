@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, from } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
-import { AuthService } from './auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -23,7 +23,7 @@ export class AuthInterceptor implements HttpInterceptor {
             catchError((err: HttpErrorResponse) => {
                 if (err.status === 401 && err.error?.code === 'ACCESSS_TOKEN_INVALID') {
                     // Refresh token và retry request
-                    return this.auth.refreshAccessToken().pipe(
+                    return this.auth.refreshState$.pipe(
                         switchMap(newToken => {
                             const newReq = req.clone({
                                 headers: req.headers.set('Authorization', `Bearer ${newToken}`)
