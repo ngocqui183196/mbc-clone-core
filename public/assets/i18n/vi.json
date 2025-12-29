@@ -1,0 +1,8 @@
+{
+  "HELLO": "Xin chào",
+  "LOGIN": {
+    "TITLE": "Đăng nhập",
+    "USERNAME": "Tài khoản",
+    "PASSWORD": "Mật khẩu"
+  }
+}
