@@ -2,7 +2,9 @@ import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule, MatSelectTrigger } from '@angular/material/select';
+import { MatSelectModule,
+  //  MatSelectTrigger 
+  } from '@angular/material/select';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
@@ -30,7 +32,7 @@ interface Account {
     MatSelectModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatSelectTrigger
+    // MatSelectTrigger
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

@@ -9,7 +9,8 @@ import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CdkMenu, CdkMenuItem, CdkMenuTrigger } from '@angular/cdk/menu';
 import { TranslateModule, TranslateService } from '@ngx-translate/core'
-import { NumberToWordsPipe } from '../../shared/pipes/number-to-words.pipe';
+import { OtpComponent } from '../../shared/components/otp/otp.component';
+// import { NumberToWordsPipe } from '../../shared/pipes/number-to-words.pipe';
 
 interface Food {
   value: string;
@@ -37,7 +38,8 @@ interface Account {
     CdkMenu,
     CdkMenuItem,
     TranslateModule,
-    NumberToWordsPipe,
+    // NumberToWordsPipe,
+    OtpComponent
   ],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',
@@ -48,7 +50,7 @@ export class AccountComponent {
   form: FormGroup;
   title = 'mbc-clone';
 
-  private transLateService = inject(TranslateService)
+  // private transLateService = inject(TranslateService)
 
   accounts: Account[] = [
     {
@@ -107,6 +109,6 @@ export class AccountComponent {
   selectLanguage(lang: {code: string, name: string}) {
     console.log(lang);
     this.languageSelected = lang;
-    this.transLateService.use(lang.code)
+    // this.transLateService.use(lang.code)
   }
 }

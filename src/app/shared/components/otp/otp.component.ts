@@ -1,8 +1,11 @@
 
-import { Component, ElementRef, inject, Input, NgZone, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, Input, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import * as pdfjsLib from 'pdfjs-dist';
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+    '/assets/pdf.worker.min.mjs';
 
 import { CommonModule } from '@angular/common';
-import { FormArray, FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 // import { TransferService, typeOTPValue } from '../../transfer.service';
 // import { AuthService } from '@pages/auth/auth.service';
 // import { SettingService } from '@pages/components/settings/services/setting.service';
@@ -15,11 +18,26 @@ import { FormArray, FormBuilder, FormControl, FormsModule, ReactiveFormsModule, 
 
 @Component({
   selector: 'app-otp',
-  imports: [],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule],
+  standalone: true,
   templateUrl: './otp.component.html',
   styleUrl: './otp.component.scss'
 })
-export class OtpComponent {
+export class OtpComponent implements AfterViewInit{
+  @ViewChild('pdfContainer') pdfContainer!: ElementRef<HTMLDivElement>;
+
+//   set pdfCanvasSetter(ref: ElementRef<HTMLCanvasElement> | undefined) {
+//   if (!ref) return;
+
+//   this.pdfCanvas = ref;
+//   this.renderPdf();
+// }
+
+  ngAfterViewInit(): void {
+    this.renderPdf()
+  }
   @Input() dataForm: any;
   @ViewChildren('otpInput') inputs!: QueryList<ElementRef>;
   // private authService = inject(AuthService);
@@ -60,7 +78,7 @@ export class OtpComponent {
         this.timeLeft--;
         const minutes = Math.floor(this.timeLeft / 60);
         const seconds = this.timeLeft % 60;
-        this.displayTime = `0${ minutes }:${ seconds < 10 ? '0' : '' }${ seconds }`;
+        this.displayTime = `0${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
       }
     }, 1000);
   } public submit(): any {
@@ -97,11 +115,40 @@ export class OtpComponent {
     for (let i = 0;
       i < digits.length && index + i < this.otp.length;
       i++) {
-        this.otpArray.at(index + i).setValue(digits[i], { emitEvent: false });
+      this.otpArray.at(index + i).setValue(digits[i], { emitEvent: false });
     } const lastIndex = Math.min(index + digits.length, this.otp.length);
     if (lastIndex > this.otp.length - 1) {
       this.inputs.toArray()[this.otp.length - 1]?.nativeElement.focus();
       return;
     } this.inputs.toArray()[lastIndex]?.nativeElement.focus();
   }
+
+  async renderPdf() {
+  const container = this.pdfContainer.nativeElement;
+  container.innerHTML = ''; // clear cũ
+
+  const pdf = await pdfjsLib.getDocument('/assets/images/request.pdf').promise;
+
+  const scale = 1.1;
+
+  for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+    const page = await pdf.getPage(pageNum);
+    const viewport = page.getViewport({ scale });
+
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d')!;
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    canvas.className = 'pdf-page';
+
+    container.appendChild(canvas);
+
+    await page.render({
+      canvas,
+      canvasContext: context,
+      viewport,
+    }).promise;
+  }
 }
+}
+
