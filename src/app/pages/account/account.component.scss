@@ -1,3 +1,74 @@
+@use "/core/breakpoints" as bp;
+
+.transaction-form {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: white;
+
+  .row {
+    width: 100%;
+    display: grid;
+    gap: 12px;
+    align-items: start;
+  }
+  /* Grid/Flex children */
+.row > *,
+.field-first > * {
+  min-width: 0;
+}
+
+mat-form-field {
+  width: 100%;
+  min-inline-size: 0;
+}
+
+.mat-mdc-form-field,
+.mat-mdc-select,
+.mat-mdc-text-field-wrapper {
+  min-width: 0;
+}
+
+  .row-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .row-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .row-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .row-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .span-2 {
+  grid-column: span 2;
+}
+
+.span-3 {
+  grid-column: span 3;
+}
+
+.span-4 {
+  grid-column: span 4;
+}
+}
+
+.field-first {
+  display: flex;
+  gap: 12px;
+}
+
+.field-first > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
 .example-menu {
   display: inline-flex;
   flex-direction: column;
@@ -9,6 +80,20 @@
   padding: 6px 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow: hidden;
+
+  @include bp.desktop {
+    max-width: 300px;
+  }
+}
+
+.form-field-one {
+  margin-top: 30px;
+  margin-left: 50px;
+  width: 700px;
+
+    @include bp.desktop {
+    width: 300px;
+  }
 }
 
 .example-menu-item,

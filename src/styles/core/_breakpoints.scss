@@ -1,0 +1,36 @@
+@use "core/variables" as vars;
+@mixin desktopXL {
+  @media (max-width: map-get(vars.$breakpoints, "desktop-xl")) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: map-get(vars.$breakpoints, "desktop")) {
+    @content;
+  }
+}
+
+@mixin tabletLg {
+  @media (max-width: map-get(vars.$breakpoints, "tablet-lg")) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: map-get(vars.$breakpoints, "tablet")) {
+    @content;
+  }
+}
+
+@mixin tabletSm {
+  @media (max-width: map-get(vars.$breakpoints, "tablet-sm")) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: map-get(vars.$breakpoints, "mobile")) {
+    @content;
+  }
+}

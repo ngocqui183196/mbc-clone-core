@@ -1,20 +1,22 @@
-<mat-form-field [appearance]="appearance" class="full-width">
-  <mat-label>
-    {{ label }}
-    <span *ngIf="isRequired()" class="required">*</span>
-  </mat-label>
+<div class="biz-input">
+    <mat-form-field [appearance]="appearance" class="full-width">
+    <mat-label>
+        {{ label }}
+        <span *ngIf="isRequired()" class="required">*</span>
+    </mat-label>
 
-  <input
-    matInput
-    [type]="type"
-    [placeholder]="placeholder"
-    [value]="value"
-    [disabled]="disabled"
-    (input)="onChange($any($event.target).value)"
-    (blur)="onTouched()"
-  />
+    <input
+        matInput
+        [type]="type"
+        [placeholder]="placeholder"
+        [value]="value"
+        [disabled]="disabled"
+        (input)="onChange($any($event.target).value)"
+        (blur)="onTouched()"
+    />
 
-  <mat-error *ngIf="control?.invalid && (control?.touched || control?.dirty)">
-    {{ errorMessages | json }}
-  </mat-error>
+    <mat-error *ngIf="control?.invalid && (control?.touched || control?.dirty)">
+        {{ errorMessages | json }}
+    </mat-error>
 </mat-form-field>
+</div>

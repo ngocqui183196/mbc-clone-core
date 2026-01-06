@@ -23,7 +23,7 @@
           "options": {
             "stylePreprocessorOptions": {
               "includePaths": [
-                "node_modules"
+                "src/styles"
               ]
             },
             "outputPath": "dist/mbc-clone",
