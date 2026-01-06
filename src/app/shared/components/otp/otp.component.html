@@ -1,0 +1,31 @@
+<div class="otp-wrapper">
+    <div class="otp-container">
+        <!-- <div class="title-otp">{{ 'TRANSFER.OTP_VERIFICATION' | translate }}</div>  -->
+        <div class="title-otp">Notification OTP</div> 
+        <img src="/assets/icons/otp-notification.svg" alt="" style="margin: 23px auto; width: 116px; height: 116px">
+        
+        <form [formGroup]="form" class="form">
+            <div class="otp-input" formArrayName="otp">
+                 <input #otpInput
+                    *ngFor="let ctrl of otpArray.controls; let i = index" type="text" maxlength="1" inputmode="numeric"
+                    autocomplete="one-time-code" [formControlName]="i" (input)="onInput($event, i)"
+                    (keydown)="onKeyDown($event, i)" (paste)="onPaste($event, i)" />
+            </div>
+        </form>
+        <div class="resen-otp"> 
+            <button (click)="onSendOTP()" [disabled]="timeLeft > 0" class="label-send">
+                <!-- <b>{{'TRANSFER.RESEND_OTP' | translate}}:</b> -->
+                <b>Resend OTP:</b>
+            </button>
+             <span>{{ displayTime }}</span>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="pdf-card">
+  <canvas #pdfCanvas></canvas>
+</div> -->
+
+<div class="pdf-card">
+  <div class="pdf-scroll" #pdfContainer></div>
+</div>

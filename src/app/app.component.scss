@@ -32,3 +32,23 @@
     align-items: center;
   }
 }
+
+.cursor {
+  width: 32px;
+  height: 32px;
+
+  // background-image: url('/assets/cursor/img-default.png');
+  // background-repeat: no-repeat;
+  // background-size: contain;
+  // background-position: center;
+
+  position: fixed;
+  // top: 0;
+  // left: 0;
+
+  pointer-events: none;
+  // transform: scale(var(--cursor-scale));
+  z-index: 9999;
+  // transition: transform 0.04s linear;
+
+}

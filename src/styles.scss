@@ -1,6 +1,10 @@
 @use '@angular/material' as mat;
 @use 'styles/core/_material-theme';
 
+* {
+  cursor: none !important;
+}
+
 :root {
     --mat-sys-secondary-container: rgba(248, 250, 252, 1);
     --mat-sys-on-secondary-container: rgba(25, 40, 57, 1);
@@ -12,6 +16,7 @@
     /* Thay thế infix-padding (trên/dưới = vertical, trái/phải = horizontal) */
   --mat-form-field-container-vertical-padding: 12px;  /* padding trên/dưới */
   --mat-form-field-container-horizontal-padding: 16px; /* padding trái/phải */
+  --cursor-scale: 1;
 }
 
 
